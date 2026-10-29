@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+{% block title %}Threat Vector | Cybersecurity Awareness & Training Platform{% endblock %}
+
+{% block content %}
+
+<!-- =========================================================================
+     2. VERTICAL ACADEMIC OVERVIEW (NO BOXES)
+     ========================================================================= -->
+<section class="vertical-academic-stack">
+    <!-- 1. Problem Statement -->
+    <div class="vertical-section-item">
+        <h2 class="vertical-heading"><span class="heading-emoji">🛑</span> 1. Problem Statement</h2>
+        <p class="vertical-description">
+            Most existing cybersecurity learning platforms are overly complex and technical, making it intimidating for school and college beginners to start practicing security concepts.
+        </p>
+    </div>
+
+    <!-- 2. Proposed Solution -->
+    <div class="vertical-section-item">
+        <h2 class="vertical-heading"><span class="heading-emoji">💡</span> 2. Proposed Solution</h2>
+        <p class="vertical-description">
+            Threat Vector is a simplified, beginner-friendly cybersecurity training platform that offers intuitive simulation drills, AI-assisted threat analysis, and hands-on CTF challenges in one place.
+        </p>
+    </div>
+</section>
+
+<!-- =========================================================================
+     3. SIX CORE FEATURE CARDS (GRID)
+     ========================================================================= -->
+<section class="feature-grid-section">
+    <div class="feature-cards-grid">
+
+        <!-- Card 1: Simulation Drills -->
+        <a href="{{ url_for('drills') }}" class="feature-interactive-card">
+            <div class="feature-card-content">
+                <div class="feature-card-header">
+                    <div class="feature-card-icon" style="color: var(--accent-cyan); border-color: rgba(56, 189, 248, 0.3);">🎯</div>
+                    <div class="feature-card-title-group">
+                        <h3 class="feature-card-title">Simulation Drills</h3>
+                        <span class="badge badge-cyan" style="font-size: 0.68rem; padding: 0.15rem 0.5rem;">Interactive Training</span>
+                    </div>
+                </div>
+                <p class="feature-card-description">
+                    Realistic phishing, SMS OTP, executive impersonation, and quishing scenarios with continuous training flow and instant explainable feedback.
+                </p>
+            </div>
+            <div class="feature-card-footer">
+                <span class="feature-card-tag">Continuous Drills</span>
+                <span class="feature-card-action">Launch Drills &rarr;</span>
+            </div>
+        </a>
+
+        <!-- Card 2: AI Threat Inspector -->
+        <a href="{{ url_for('inspector') }}" class="feature-interactive-card">
+            <div class="feature-card-content">
+                <div class="feature-card-header">
+                    <div class="feature-card-icon" style="color: var(--accent-purple); border-color: rgba(129, 140, 248, 0.3);">🔍</div>
+                    <div class="feature-card-title-group">
+                        <h3 class="feature-card-title">AI Threat Inspector</h3>
+                        <span class="badge badge-purple" style="font-size: 0.68rem; padding: 0.15rem 0.5rem;">ML Classification</span>
+                    </div>
+                </div>
+                <p class="feature-card-description">
+                    Multi-modal threat detector combining Scikit-learn TF-IDF NLP inference, regex heuristics, file uploads, and professional threat reports.
+                </p>
+            </div>
+            <div class="feature-card-footer">
+                <span class="feature-card-tag">AI + Heuristics</span>
+                <span class="feature-card-action">Inspect Telemetry &rarr;</span>
+            </div>
+        </a>
+
+        <!-- Card 3: CTF Tactical Range -->
+        <a href="{{ url_for('ctf') }}" class="feature-interactive-card">
+            <div class="feature-card-content">
+                <div class="feature-card-header">
+                    <div class="feature-card-icon" style="color: var(--threat-safe); border-color: rgba(16, 185, 129, 0.3);">🚩</div>
+                    <div class="feature-card-title-group">
+                        <h3 class="feature-card-title">CTF Tactical Range</h3>
+                        <span class="badge badge-green" style="font-size: 0.68rem; padding: 0.15rem 0.5rem;">Hands-on Missions</span>
+                    </div>
+                </div>
+                <p class="feature-card-description">
+                    Investigate log footprints, decode obfuscated web payloads, crack ciphers, and capture security flags across tactical missions.
+                </p>
+            </div>
+            <div class="feature-card-footer">
+                <span class="feature-card-tag">Flag Capture</span>
+                <span class="feature-card-action">Enter Range &rarr;</span>
+            </div>
+        </a>
+
+        <!-- Card 4: Incident War Room -->
+        <a href="{{ url_for('war_room') }}" class="feature-interactive-card">
+            <div class="feature-card-content">
+                <div class="feature-card-header">
+                    <div class="feature-card-icon" style="color: var(--threat-malicious); border-color: rgba(239, 68, 68, 0.3);">🚨</div>
+                    <div class="feature-card-title-group">
+                        <h3 class="feature-card-title">Incident War Room</h3>
+                        <span class="badge badge-red" style="font-size: 0.68rem; padding: 0.15rem 0.5rem;">SOC Crisis Sim</span>
+                    </div>
+                </div>
+                <p class="feature-card-description">
+                    Lead incident containment during active ransomware outbreaks, credential stuffing, and data exfiltration crisis response phases.
+                </p>
+            </div>
+            <div class="feature-card-footer">
+                <span class="feature-card-tag">CSIRT Incident Ops</span>
+                <span class="feature-card-action">Enter War Room &rarr;</span>
+            </div>
+        </a>
+
+        <!-- Card 5: Defense Leaderboard -->
+        <a href="{{ url_for('leaderboard') }}" class="feature-interactive-card">
+            <div class="feature-card-content">
+                <div class="feature-card-header">
+                    <div class="feature-card-icon" style="color: var(--threat-warning); border-color: rgba(245, 158, 11, 0.3);">🏆</div>
+                    <div class="feature-card-title-group">
+                        <h3 class="feature-card-title">Defense Leaderboard</h3>
+                        <span class="badge badge-amber" style="font-size: 0.68rem; padding: 0.15rem 0.5rem;">Peer Standings</span>
+                    </div>
+                </div>
+                <p class="feature-card-description">
+                    Benchmark your Defense Score ratings, simulation accuracy percentages, and mastered drill tallies against peer trainees.
+                </p>
+            </div>
+            <div class="feature-card-footer">
+                <span class="feature-card-tag">Global Ranking</span>
+                <span class="feature-card-action">View Ladder &rarr;</span>
+            </div>
+        </a>
+
+        <!-- Card 6: Analytics & Risk Profile -->
+        <a href="{{ url_for('profile') }}" class="feature-interactive-card">
+            <div class="feature-card-content">
+                <div class="feature-card-header">
+                    <div class="feature-card-icon" style="color: var(--accent-cyan); border-color: rgba(56, 189, 248, 0.3);">📈</div>
+                    <div class="feature-card-title-group">
+                        <h3 class="feature-card-title">Analytics & Risk Profile</h3>
+                        <span class="badge badge-cyan" style="font-size: 0.68rem; padding: 0.15rem 0.5rem;">Threat Diagnostics</span>
+                    </div>
+                </div>
+                <p class="feature-card-description">
+                    Review category-wise precision, diagnose behavioral threat vulnerabilities, and export your official defense certificate.
+                </p>
+            </div>
+            <div class="feature-card-footer">
+                <span class="feature-card-tag">Personal Matrix</span>
+                <span class="feature-card-action">View Profile &rarr;</span>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+<!-- =========================================================================
+     4. LOWER VERTICAL SECTION (NO BOXES)
+     ========================================================================= -->
+<section class="vertical-academic-stack" style="margin-bottom: 3.5rem;">
+    <!-- 3. Key Objectives -->
+    <div class="vertical-section-item">
+        <h2 class="vertical-heading"><span class="heading-emoji">🎯</span> 3. Key Objectives</h2>
+        <ul class="vertical-bullet-list">
+            <li>Provide a beginner-friendly sandbox for students to practice cyber defense without technical friction.</li>
+            <li>Offer AI-driven explanation and inspection of suspicious text, email headers, and URLs.</li>
+            <li>Feature gamified CTF challenges and drills to build foundational security skills progressively.</li>
+        </ul>
+    </div>
+
+    <!-- 4. Project Architecture -->
+    <div class="vertical-section-item">
+        <h2 class="vertical-heading"><span class="heading-emoji">🏗️</span> 4. Project Architecture</h2>
+        <p class="vertical-description">
+            The application uses a serverless Python Flask architecture with a local SQLite database for zero-dependency deployment. It integrates a Scikit-learn machine learning pipeline and Jinja2 frontend views to handle real-time threat analysis and synchronous routing.
+        </p>
+    </div>
+
+    <!-- 5. Next Milestone -->
+    <div class="vertical-section-item">
+        <h2 class="vertical-heading"><span class="heading-emoji">🚀</span> 5. Next Milestone</h2>
+        <p class="vertical-description">
+            Expand the platform's content library to dynamically generate a larger variety of interactive drills, CTF challenges, and war room scenarios for continuous learning.
+        </p>
+    </div>
+</section>
+
+{% endblock %}

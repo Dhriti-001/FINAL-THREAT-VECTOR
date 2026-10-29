@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threat Vector | User Authentication</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="background: radial-gradient(circle at 50% 30%, #111827 0%, #0B0F19 75%);">
+
+    <div class="auth-wrapper">
+        <div class="auth-card">
+            
+            <div class="auth-logo-center">
+                <div style="display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); border-radius: 12px; margin-bottom: 0.75rem; box-shadow: 0 0 20px var(--accent-cyan-glow);">
+                    <span style="font-size: 1.75rem;">⚡</span>
+                </div>
+                <h1 style="font-size: 1.6rem; font-weight: 800; letter-spacing: 0.05em; background: linear-gradient(90deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">THREAT VECTOR</h1>
+                <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.25rem;">Cybersecurity Awareness & Training Platform</p>
+            </div>
+
+            <!-- Flash Alerts -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category if category != 'error' else 'danger' }}" style="padding: 0.75rem 1rem; font-size: 0.85rem;">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <!-- Auth Tabs -->
+            <div class="auth-tabs">
+                <button type="button" class="auth-tab-btn active" id="tab-login-btn" onclick="switchTab('login')">Sign In</button>
+                <button type="button" class="auth-tab-btn" id="tab-register-btn" onclick="switchTab('register')">Create Account</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="form-login" action="{{ url_for('login') }}" method="POST">
+                <input type="hidden" name="action" value="login">
+                <div class="form-group">
+                    <label class="form-label" for="login-username">Username</label>
+                    <input type="text" id="login-username" name="username" class="form-control" placeholder="Enter your username" required autofocus>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" class="form-control" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; padding: 0.75rem;">
+                    Sign In &rarr;
+                </button>
+            </form>
+
+            <!-- Register Form (hidden by default) -->
+            <form id="form-register" action="{{ url_for('login') }}" method="POST" style="display: none;">
+                <input type="hidden" name="action" value="register">
+                <div class="form-group">
+                    <label class="form-label" for="reg-username">Username</label>
+                    <input type="text" id="reg-username" name="username" class="form-control" placeholder="Choose a username" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="reg-password">Password</label>
+                    <input type="password" id="reg-password" name="password" class="form-control" placeholder="Choose a password (min 4 characters)" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="reg-role">Role / Track</label>
+                    <select id="reg-role" name="role" class="form-control" style="background: var(--bg-input); color: var(--text-primary);">
+                        <option value="Security Analyst">Security Analyst</option>
+                        <option value="Incident Responder">Incident Responder</option>
+                        <option value="Threat Intelligence Researcher">Threat Intelligence Researcher</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-purple" style="width: 100%; margin-top: 0.5rem; padding: 0.75rem;">
+                    Create Account &rarr;
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tab) {
+            const loginForm = document.getElementById('form-login');
+            const regForm = document.getElementById('form-register');
+            const loginBtn = document.getElementById('tab-login-btn');
+            const regBtn = document.getElementById('tab-register-btn');
+
+            if (tab === 'login') {
+                loginForm.style.display = 'block';
+                regForm.style.display = 'none';
+                loginBtn.classList.add('active');
+                regBtn.classList.remove('active');
+            } else {
+                loginForm.style.display = 'none';
+                regForm.style.display = 'block';
+                loginBtn.classList.remove('active');
+                regBtn.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
